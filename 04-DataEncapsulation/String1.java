@@ -30,6 +30,15 @@ public class String1 {
             }
         }return 0;
     }
+    public String replace(){
+        String text = this.string;
+        char minus = '-';
+        text = text.replace(' ', minus);
+        return text;
+    }
+    public String upperCase(){
+        return this.string.toUpperCase();
+    }
 
 
     
