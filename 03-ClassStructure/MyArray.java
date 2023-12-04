@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Arrays;
 
 public class MyArray {
     public int even(int[] array){
@@ -39,29 +42,55 @@ public class MyArray {
             return false;
         }
     }
-    public String number(int[] a1 ,int[] a2){
-        boolean is = false;
-        String jd ="";
-        for (int i = 0; i < a1.length; i++) {
-            for (int j = 0; j < a2.length; j++) {
-                if (a1[i] == a2[j]){
+    public List<Integer> different(int[] array1, int[] array2){
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < array1.length; i++) {
+            boolean is = false;
+            for (int j = 0; j < array2.length; j++) {
+                if (array1[i] == array2[j]){
                     is = true;
-                }    
+                    break;
+                    }
+            }if (!is){
+                list.add(array1[i]);
             }
-            if (is ==false){
-                jd += Integer.toString(a1[i]) + " ";
-            }
-            is = false;
-        }
-        return jd;
-
+        }return list;
     }
 
+    public boolean exist (int number ,int[] array){
+        for (int i : array) {
+            if (i == number){
+                return true;
+            }
+        }return false;
+    }
+    public int lastColumn(int[][] array){
+        int sum =0;
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(array[i][array[i].length -1]);
+        }
+        return sum;
+    }
+    public int[][] swap(int[][] array1){
+        int num;
+        int [][] swappedarray = new int[array1.length][array1[0].length];
+        for (int i = 0; i < array1.length; i++) {
+            num = array1[i][0];
+            array1[i][0] = array1[i][array1[i].length-1];
+            array1[i][array1[i].length-1] = num;
+            
+        }
+        return array1;
+    } 
 
     public static void main(String[] args){
         MyArray sjk = new MyArray();
         int[] dick = {1,2,3,4,5,6,7};
         int[] pussy = {1,2,3,3,3,7};
-        System.out.println(sjk.number(dick, pussy));
+        int[][] dupa = {{1,2,3},{4,5,6},{7,8,9}};
+        int[][] kupa = {{1},{2}};
+        System.out.println(Arrays.deepToString(sjk.swap(dupa)));
+        
+        
     }
 }

@@ -1,6 +1,6 @@
 import java.util.Random;
 import java.util.Scanner;
-import java.util.stream.DoubleStream;
+
 
 
 public class StudentGrades {
@@ -44,15 +44,14 @@ public class StudentGrades {
         }
         return grade;
     }
-    public int numOfGrades(){
-        return this.grades.length;
-    }
 
     public double[] generate(){
-        DoubleStream num = new Random()
-        .doubles(this.rand,1.0,5.0);
-        double[] randgrades = num.toArray();
-        return randgrades;
+        Random num = new Random();
+        int randgrade = num.nextInt(5) + 1;
+        double randgradedouble = (double) randgrade;
+        double[] newGrades = new double[this.grades.length+1];
+        newGrades[newGrades.length-1] = randgradedouble;
+        return newGrades;
     }
 
     public void display(){
@@ -63,9 +62,8 @@ public class StudentGrades {
         double [] gr = {1.0,2.0,3.0,4.0,5.0};
         StudentGrades one = new StudentGrades("Jakub", gr);
         System.out.println(one.generate());
-
         StudentGrades two = new StudentGrades("Jakub");
-
+        one.generate();
         
     }
 }
